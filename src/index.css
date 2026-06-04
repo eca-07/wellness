@@ -1,0 +1,258 @@
+:root {
+  /* Default Base (Light Mode) */
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --accent-color: #4a90e2;
+  
+  --font-family: 'Inter', system-ui, sans-serif;
+  --font-size: 16px;
+  
+  /* Additional UI Colors */
+  --surface-color: #f3f4f6;
+  --border-color: #e5e7eb;
+}
+
+/* Base Modes */
+[data-mode="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --surface-color: #2d2d2d;
+  --border-color: #404040;
+}
+
+/* Built-in Themes */
+[data-theme="nature"] {
+  --bg-color: #e3ebd6; /* Soft Sage Green */
+  --text-color: #1b4d3e; /* Deep Forest Green */
+  --accent-color: #557a46; /* Moss Green */
+  --surface-color: #d1dfc1;
+  --border-color: #b8c9a3;
+}
+[data-theme="nature"][data-mode="dark"] {
+  --bg-color: #1b4d3e;
+  --text-color: #e3ebd6;
+  --surface-color: #133a2d;
+  --border-color: #0b251c;
+}
+
+[data-theme="midnight"] {
+  --bg-color: #2c3e50; /* Deep Blue-Gray */
+  --text-color: #ecf0f1; /* Soft White */
+  --accent-color: #5d8aa8; /* Muted Blue */
+  --surface-color: #1a252f;
+  --border-color: #34495e;
+}
+[data-theme="midnight"][data-mode="light"] {
+  --bg-color: #ecf0f1;
+  --text-color: #2c3e50;
+  --surface-color: #bdc3c7;
+  --border-color: #95a5a6;
+}
+
+[data-theme="serenity"] {
+  --bg-color: #ffe4e1; /* Soft Blush Pink */
+  --text-color: #36454f; /* Charcoal Gray */
+  --accent-color: #ffb6c1; /* Rose Pink */
+  --surface-color: #ffd1dc;
+  --border-color: #ffb6c1;
+}
+[data-theme="serenity"][data-mode="dark"] {
+  --bg-color: #36454f;
+  --text-color: #ffe4e1;
+  --surface-color: #2c3841;
+  --border-color: #1f272e;
+}
+
+[data-theme="cloud"] {
+  --bg-color: #f0f4f8; /* Light Gray */
+  --text-color: #333333; /* Dark Gray */
+  --accent-color: #a0b2c6; /* Silver Blue */
+  --surface-color: #d9e2ec;
+  --border-color: #bcccdc;
+}
+[data-theme="cloud"][data-mode="dark"] {
+  --bg-color: #333333;
+  --text-color: #f0f4f8;
+  --surface-color: #262626;
+  --border-color: #1a1a1a;
+}
+
+[data-theme="sunrise"] {
+  --bg-color: #fffdd0; /* Soft Cream */
+  --text-color: #5c4033; /* Warm Brown */
+  --accent-color: #ff8c00; /* Golden Orange */
+  --surface-color: #fff5c0;
+  --border-color: #ffe099;
+}
+[data-theme="sunrise"][data-mode="dark"] {
+  --bg-color: #5c4033;
+  --text-color: #fffdd0;
+  --surface-color: #463126;
+  --border-color: #30211a;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease, font-size 0.3s ease;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Utilities */
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.glass-panel {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-color);
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+.btn-icon:hover {
+  background-color: var(--surface-color);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+textarea.input-field {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.flex-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.color-picker {
+  -webkit-appearance: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.color-picker::-webkit-color-swatch {
+  border: none;
+}
